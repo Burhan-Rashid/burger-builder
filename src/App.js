@@ -1,5 +1,5 @@
 import './App.css';
-import BurgerBuilder from './containers/BurgerBuilder';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 
 function App() {
   return (
