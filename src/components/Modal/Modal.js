@@ -4,7 +4,7 @@ import Button from '../UI/Button/Button'
 import "./Modal.css"
 
 function Modal() {
-    const show = true;
+    const show = false;
 
     let modal = (<React.Fragment>
         <Backdrop />
