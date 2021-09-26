@@ -1,4 +1,5 @@
 import React from 'react'
+import Auth from '../../components/Auth/Auth'
 import Backdrop from '../../components/Backdrop/Backdrop'
 import BuildControls from '../../components/BuildControls/BuildControls'
 import Burger from "../../components/Burger/Burger"
@@ -16,6 +17,7 @@ function BurgerBuilder() {
             <Modal />
             <OrderCard />
             <OrderCard />
+            <Auth />
 
         </div>
     )
