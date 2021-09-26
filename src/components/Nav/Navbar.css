@@ -1,0 +1,27 @@
+.Navbar {
+  height: 60px;
+  width: 100%;
+  background-color: rgba(124, 77, 14);
+  z-index: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+}
+.Navbar p {
+  color: white;
+  background-color: rgba(88, 63, 30, 0.616);
+  text-align: center;
+  width: 10%;
+  height: 90%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid rgba(245, 26, 26, 0.74);
+}
+.Navbar p:hover {
+  background-color: rgba(88, 63, 30, 0.9);
+}
