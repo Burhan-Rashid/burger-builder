@@ -6,6 +6,7 @@ import Burger from "../../components/Burger/Burger"
 import Modal from '../../components/Modal/Modal'
 import Navbar from '../../components/Nav/Navbar'
 import OrderCard from '../../components/Order/OrderCard'
+import Sidebar from '../../components/Sidebar/Sidebar'
 import UserDetailsForm from '../../components/UserDetails/UserDetailsForm'
 
 function BurgerBuilder() {
@@ -20,6 +21,7 @@ function BurgerBuilder() {
             <OrderCard />
             <OrderCard />
             <Auth />
+            {/* <Sidebar /> */}
 
         </div>
     )
