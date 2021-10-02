@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux";
 import Auth from '../../components/Auth/Auth'
 import Backdrop from '../../components/Backdrop/Backdrop'
 import BuildControls from '../../components/BuildControls/BuildControls'
@@ -10,17 +11,19 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import UserDetailsForm from '../../components/UserDetails/UserDetailsForm'
 
 function BurgerBuilder() {
+    const ingredients = useSelector(state => state.burgerBuilder.ingredients);
+
     return (
         <div>
             <Navbar />
             <Burger />
             <BuildControls />
-            <UserDetailsForm />
+            {/* <UserDetailsForm /> */}
             {/* <Backdrop /> */}
-            <Modal />
+            {/* <Modal />
             <OrderCard />
             <OrderCard />
-            <Auth />
+            <Auth /> */}
             {/* <Sidebar /> */}
 
         </div>
