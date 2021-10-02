@@ -10,14 +10,23 @@ const initialState = {
     price: 4
 }
 
+const INGREDIENT_PRICES = {
+    cheese: 1.0,
+    meat: 1.8,
+    bacon: 1.4,
+    salad: 0.5
+}
+
 const addIngredient = (state, action) => {
-    const updatedIngredient = { [action.ingredient]: state.ingredients[action.ingredient] + 1 };
-    const newState = { ...state, ingredients: { ...state.ingredients, updatedIngredient } };
+    const updatedValue = state.ingredients[action.ingredient] + 1;
+    const updatedPrice = state.price + INGREDIENT_PRICES[action.ingredient];
+    const newState = { ...state, price: updatedPrice, ingredients: { ...state.ingredients, [action.ingredient]: updatedValue } };
     return newState;
 }
 const removeIngredient = (state, action) => {
-    const updatedIngredient = { [action.ingredient]: state.ingredients[action.ingredient] - 1 };
-    const newState = { ...state, ingredients: { ...state.ingredients, updatedIngredient } };
+    const updatedValue = state.ingredients[action.ingredient] - 1;
+    const updatedPrice = state.price - INGREDIENT_PRICES[action.ingredient];
+    const newState = { ...state, price: updatedPrice, ingredients: { ...state.ingredients, [action.ingredient]: updatedValue } };
     return newState;
 }
 
