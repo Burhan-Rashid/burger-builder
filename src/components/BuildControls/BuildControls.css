@@ -19,3 +19,20 @@
 .BuildControls p {
   margin-bottom: 30px;
 }
+
+.BuildControls__button {
+  width: 120px;
+  height: 50px;
+  background-color: #daa972;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  border-radius: 5px;
+}
+.BuildControls__button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}

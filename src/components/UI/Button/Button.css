@@ -10,3 +10,8 @@
   font-size: 1.2rem;
   display: inline-block;
 }
+
+.disabled {
+  background-color: rgba(206, 54, 54, 0.281);
+  cursor: not-allowed;
+}
