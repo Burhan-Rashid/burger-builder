@@ -4,7 +4,7 @@ import Button from '../UI/Button/Button'
 import * as actions from "../../store/actions/BurgerBuilderActions"
 import "./BuildControls.css"
 
-function BuildControls() {
+function BuildControls({ setShow }) {
 
     const ingredients = useSelector(state => state.burgerBuilder.ingredients);
     const price = useSelector(state => state.burgerBuilder.price);
@@ -20,26 +20,31 @@ function BuildControls() {
         }
         dispatch(actions.removeIngredient(ing));
     }
-    console.log(price === 4)
+
+    // console.log(price)
+
+    const controls = ingredientArray.map((ing, index) => {
+        return <div className="BuildControls__control">
+            <div className="BuildControls__label">
+                <h4>{ing[0].toUpperCase() + ing.slice(1)} </h4>
+            </div>
+            <Button onClick={() => addIngredient(ing)}>+</Button>
+            <span>{ingredients[ing]}</span>
+            <Button
+                disabled={ingredients[ing] === 0}
+                onClick={() => removeIngredient(ing)}
+            >-</Button>
+        </div>
+    })
+
     return (
         <div className="BuildControls">
             <p>Price: <strong>$ {price.toFixed(2)}</strong></p>
-            {ingredientArray.map((ing, index) => {
-                return <div className="BuildControls__control">
-                    <div className="BuildControls__label">
-                        <h4>{ing[0].toUpperCase() + ing.slice(1)} </h4>
-                    </div>
-                    <Button onClick={() => addIngredient(ing)}>+</Button>
-                    <span>{ingredients[ing]}</span>
-                    <Button
-                        disabled={ingredients[ing] === 0}
-                        onClick={() => removeIngredient(ing)}
-                    >-</Button>
-                </div>
-            })}
+            {controls}
             <button
                 className="BuildControls__button"
                 disabled={price === 4}
+                onClick={() => setShow(true)}
             >
                 <strong>Order Now</strong>
             </button>

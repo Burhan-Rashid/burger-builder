@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Backdrop.css"
 
-function Backdrop({ children }) {
+function Backdrop({ setShow }) {
     return (
-        <div className="Backdrop">
+        <div className="Backdrop" onClick={() => setShow(false)}>
         </div>
     )
 }

@@ -11,10 +11,10 @@ const initialState = {
 }
 
 const INGREDIENT_PRICES = {
-    cheese: 1.0,
-    meat: 1.8,
-    bacon: 1.4,
-    salad: 0.5
+    cheese: 1.00,
+    meat: 1.80,
+    bacon: 1.40,
+    salad: 0.50
 }
 
 const addIngredient = (state, action) => {

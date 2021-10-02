@@ -1,22 +1,31 @@
 import React from 'react'
+import { useSelector, useDispatch } from "react-redux"
 import Backdrop from '../Backdrop/Backdrop'
 import Button from '../UI/Button/Button'
 import "./Modal.css"
 
-function Modal() {
-    const show = false;
+function Modal({ show, setShow }) {
+    const ingredients = useSelector(state => state.burgerBuilder.ingredients);
+    const ingredientsArray = Object.keys(ingredients);
+    const price = useSelector(state => state.burgerBuilder.price);
+
+    let summary = ingredientsArray.map((ing, index) => {
+        return <p>{ing[0].toUpperCase() + ing.slice(1)} : <strong>{ingredients[ing]}</strong></p>
+    })
 
     let modal = (<React.Fragment>
-        <Backdrop />
+        <Backdrop setShow={setShow} />
         <div className="modal">
             <h4>Order Summary</h4>
-            <p>Cheese: <strong>2</strong></p>
-            <p>Meat: <strong>3</strong></p>
-            <p>Bacon: <strong>1</strong></p>
-            <p>Salad: <strong>2</strong></p>
-            <h4>Total Price: $5.23</h4>
+            {summary}
+            <h4>Total Price: ${price.toFixed(2)}</h4>
             <div className="modal__buttons">
-                <Button style={{ width: "80px", backgroundColor: "gray", marginRight: "5px", color: "white" }}>Cancel</Button>
+                <Button
+                    style={{ width: "80px", backgroundColor: "gray", marginRight: "5px", color: "white" }}
+                    onClick={() => setShow(false)}
+                >
+                    Cancel
+                </Button>
                 <Button style={{ width: "80px", color: "white" }}>Continue</Button>
             </div>
         </div>

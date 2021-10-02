@@ -10,17 +10,25 @@ import OrderCard from '../../components/Order/OrderCard'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import UserDetailsForm from '../../components/UserDetails/UserDetailsForm'
 
+import "./BurgerBuilder.css"
+
 function BurgerBuilder() {
     const ingredients = useSelector(state => state.burgerBuilder.ingredients);
+    const [showModal, setShowModal] = React.useState(false);
 
+    console.log(showModal);
     return (
-        <div>
+        <div className="BurgerBuilder">
             <Navbar />
             <Burger />
-            <BuildControls />
+            <BuildControls setShow={setShowModal} />
+
+            {/* <Backdrop showModal /> */}
+            <Modal show={showModal} setShow={setShowModal} />
+
             {/* <UserDetailsForm /> */}
-            {/* <Backdrop /> */}
-            {/* <Modal />
+
+            {/*
             <OrderCard />
             <OrderCard />
             <Auth /> */}
