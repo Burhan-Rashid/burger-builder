@@ -19,11 +19,9 @@ function BurgerBuilder() {
     console.log(showModal);
     return (
         <div className="BurgerBuilder">
-            <Navbar />
+
             <Burger />
             <BuildControls setShow={setShowModal} />
-
-            {/* <Backdrop showModal /> */}
             <Modal show={showModal} setShow={setShowModal} />
 
             {/* <UserDetailsForm /> */}

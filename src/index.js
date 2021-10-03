@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { combineReducers, createStore } from "redux";
 import BurgerBuilderReducer from "./store/reducers/BurgerBuilderReducer"
+import { BrowserRouter } from 'react-router-dom';
 
 const rootReducer = combineReducers({
   burgerBuilder: BurgerBuilderReducer,
@@ -13,7 +14,13 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-const app = <Provider store={store}><App /></Provider>
+const app = (
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+)
 
 ReactDOM.render(app, document.getElementById('root'));
 
