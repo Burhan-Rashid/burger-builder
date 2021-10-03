@@ -10,7 +10,7 @@
   z-index: 700;
   background-color: rgba(124, 77, 14);
   color: white;
-  padding-top: 100px;
+  padding-top: 20px;
 }
 .sidebar p {
   background-color: rgba(88, 63, 30, 0.616);
@@ -24,4 +24,8 @@
 .sidebar p:hover {
   cursor: pointer;
   background-color: rgba(88, 63, 30, 0.9);
+}
+.sidebar__icon {
+  align-self: flex-end;
+  margin-bottom: 20px;
 }
