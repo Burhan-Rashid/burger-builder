@@ -4,10 +4,13 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import "./Layout.css"
 
 function Layout(props) {
+
+    const [show, setShow] = React.useState(false);
+
     return (
         <React.Fragment>
-            <Navbar />
-            {/* <Sidebar /> */}
+            <Navbar setShow={setShow} show={show} />
+            <Sidebar show={show} setShow={setShow} />
             <div className="Layout__main">
                 {props.children}
             </div>

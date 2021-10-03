@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
+import { withRouter } from 'react-router'
 import Backdrop from '../Backdrop/Backdrop'
 import Button from '../UI/Button/Button'
 import "./Modal.css"
 
-function Modal({ show, setShow }) {
+function Modal({ show, setShow, ...props }) {
     const ingredients = useSelector(state => state.burgerBuilder.ingredients);
     const ingredientsArray = Object.keys(ingredients);
     const price = useSelector(state => state.burgerBuilder.price);
@@ -26,7 +27,12 @@ function Modal({ show, setShow }) {
                 >
                     Cancel
                 </Button>
-                <Button style={{ width: "80px", color: "white" }}>Continue</Button>
+                <Button
+                    style={{ width: "80px", color: "white" }}
+                    onClick={() => props.history.push("/checkout")}
+                >
+                    Continue
+                </Button>
             </div>
         </div>
     </React.Fragment>)
@@ -36,4 +42,4 @@ function Modal({ show, setShow }) {
     )
 }
 
-export default Modal
+export default withRouter(Modal)
