@@ -17,9 +17,8 @@
   justify-content: flex-end;
   height: 90%;
 }
-.Navbar__right p {
+.NavItem {
   color: white;
-  background-color: rgba(88, 63, 30, 0.616);
   text-align: center;
   width: 100%;
   height: 100%;
@@ -27,9 +26,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 5px solid rgba(245, 26, 26, 0.74);
 }
-.Navbar__right p:hover {
+.NavItem:hover {
   background-color: rgba(88, 63, 30, 0.9);
 }
 .Navbar__icon {
@@ -40,4 +38,18 @@
 }
 .Navbar__icon:hover {
   cursor: pointer;
+}
+.nav__active {
+  border-bottom: 5px solid rgba(245, 26, 26, 0.74);
+  background-color: rgba(88, 63, 30, 0.616);
+  color: gray;
+}
+.link {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
 }

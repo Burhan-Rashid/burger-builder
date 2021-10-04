@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Navbar.css"
 import { BiMenu } from "react-icons/bi"
-import Link from "react-router-dom/Link"
+import { NavLink } from "react-router-dom"
 
 function Navbar({ show, setShow }) {
     return (
@@ -10,9 +10,9 @@ function Navbar({ show, setShow }) {
                 <BiMenu size={38} color="white" />
             </div>
             <div className="Navbar__right">
-                <p><Link to="/" >Burger Builder</Link></p>
-                <p><Link to="/orders" >Orders</Link></p>
-                <p><Link to="/auth" >Authenticate</Link></p>
+                <div className="NavItem"><NavLink className="link" activeClassName="nav__active" exact to="/" >Burger Builder</NavLink></div>
+                <div className="NavItem"><NavLink className="link" activeClassName="nav__active" to="/orders" >Orders</NavLink></div>
+                <div className="NavItem"><NavLink className="link" activeClassName="nav__active" to="/auth" >Authenticate</NavLink></div>
             </div>
         </div>
     )

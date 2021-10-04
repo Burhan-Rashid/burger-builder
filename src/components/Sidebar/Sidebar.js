@@ -4,6 +4,10 @@ import Backdrop from '../Backdrop/Backdrop'
 import "./Sidebar.css"
 
 function Sidebar({ show, setShow }) {
+    // let classNames = ["sidebar", "Close"];
+    // if (show) {
+    //     classNames = ["sidebar", "Open"];
+    // }
 
     let sidebar = (
         <React.Fragment>

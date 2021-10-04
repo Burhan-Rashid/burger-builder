@@ -32,3 +32,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.Auth p {
+  margin-top: 10px;
+}
+.Auth p span {
+  color: gray;
+  text-decoration: underline;
+}
+.Auth p span:hover {
+  cursor: pointer;
+}
