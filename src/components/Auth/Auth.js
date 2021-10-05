@@ -7,7 +7,7 @@ import { auth } from "../../store/actions/UserActions"
 function Auth() {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [type, setType] = React.useState("Register");
+    const [type, setType] = React.useState("Login");
     const error = useSelector(state => state.user.error);
     const loading = useSelector(state => state.user.loading);
     const dispatch = useDispatch();

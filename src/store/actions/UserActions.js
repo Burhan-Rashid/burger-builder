@@ -24,7 +24,7 @@ export const auth = (email, password, type) => {
                 // dispatch(checkAuthTimeout(response.data.expiresIn));
             })
             .catch(err => {
-                dispatch({ type: actionTypes.AUTH_FAILED, error: err.message });
+                dispatch({ type: actionTypes.AUTH_FAILED, error: err.response.data.error.message });
             });
     }
 
