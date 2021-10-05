@@ -1,7 +1,7 @@
 import * as actionTypes from './ActionTypes';
 import axios from "axios";
 
-export const login = (email, password, type) => {
+export const auth = (email, password, type) => {
     return dispatch => {
         dispatch({ type: actionTypes.AUTH_START });
         const authData = {

@@ -2,7 +2,7 @@ import React from 'react'
 import "./Auth.css"
 import Button from "../UI/Button/Button"
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from "../../store/actions/UserActions"
+import { auth } from "../../store/actions/UserActions"
 
 function Auth() {
     const [email, setEmail] = React.useState("");
@@ -14,7 +14,7 @@ function Auth() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(email, password, type));
+        dispatch(auth(email, password, type));
     }
 
     const toggleType = () => {
@@ -27,11 +27,16 @@ function Auth() {
     return (
         <div className="Auth">
             <h4>{type}</h4>
-            <p>{error ? error : null}</p>
             <form className="form" onSubmit={handleSubmit}>
+                <p className="auth__error">{error ? "Error! " + error : ""}</p>
+
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Button style={{ width: "100px" }} onClick={handleSubmit}>{type}</Button>
+                {loading ?
+                    <div class="spinner"></div>
+                    : <Button style={{ width: "100px" }} onClick={handleSubmit}>{type}</Button>
+                }
+
             </form>
             {type === "Login" ?
                 <p>Don't have an account? <span onClick={toggleType}>Register</span></p> :
