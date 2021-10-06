@@ -1,4 +1,7 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom';
+import { placeOrder } from '../../store/actions/OrderActions';
 import Button from '../UI/Button/Button'
 import "./UserDetailsForm.css"
 
@@ -10,11 +13,29 @@ function UserDetailsForm() {
     const [city, setCity] = React.useState({ value: "", valid: true });
     const [phone, setPhone] = React.useState({ value: "", valid: true });
     const [deliveryType, setDeliveryType] = React.useState({ value: "", valid: true });
+    const dispatch = useDispatch();
+    const token = useSelector(state => state.user.token);
+    const error = useSelector(state => state.order.error);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const order = {
+            name: name.value,
+            email: email.value,
+            address: address.value,
+            city: city.value,
+            phone: phone.value,
+            deliveryType: deliveryType.value,
+        }
+        dispatch(placeOrder(order, token));
+        <Redirect to="/orders" />
         // console.log(deliveryType);
     }
+
+    React.useEffect(() => {
+        if (error)
+            alert("something went wrong")
+    }, [error])
 
     const checkValidity = (func, value) => {
         let valid = true;
@@ -102,6 +123,7 @@ function UserDetailsForm() {
                     <Button
                         type="submit"
                         style={{ width: "60%", color: "white" }}
+                        onClick={handleSubmit}
                     >
                         Order Now
                     </Button>
@@ -111,4 +133,4 @@ function UserDetailsForm() {
     )
 }
 
-export default UserDetailsForm
+export default withRouter(UserDetailsForm);
