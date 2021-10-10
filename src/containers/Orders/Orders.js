@@ -11,14 +11,13 @@ function Orders() {
     React.useEffect(() => {
         dispatch(fetchOrders());
     }, [])
-
+    console.log(orders)
     return (
         <div>
             {orders.length > 0 ? orders.map((order) => {
                 return <OrderCard order={order} />
             }) :
-                null}
-
+                <p>There are no orders available!</p>}
         </div>
     )
 }

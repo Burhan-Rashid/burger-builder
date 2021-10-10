@@ -25,8 +25,13 @@ export const fetchOrders = () => {
 
         try {
             axios.get(url).then((response) => {
-                console.log(response.data)
-                dispatch({ type: actionTypes.SET_ORDERS, orders: response.data })
+                if (response.data) {
+                    const orderKeys = Object.keys(response.data);
+                    const orders = orderKeys.map((id) => {
+                        return response.data[id];
+                    })
+                    dispatch({ type: actionTypes.SET_ORDERS, orders: orders })
+                }
             })
         } catch (error) {
             dispatch({ type: actionTypes.ORDER_FAILED, error: error.response.data.message })

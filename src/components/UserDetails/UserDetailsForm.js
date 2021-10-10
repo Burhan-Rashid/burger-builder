@@ -29,11 +29,13 @@ function UserDetailsForm() {
             phone: phone.value,
             deliveryType: deliveryType.value,
             ingredients: ingredients,
-            price: price
+            price: price,
+            orderTime: new Date().toISOString()
+
         }
+        //console.log(new Date().toISOString());
         dispatch(placeOrder(order, token));
-        <Redirect to="/orders" />
-        // console.log(deliveryType);
+        < Redirect to="/orders" />
     }
 
     React.useEffect(() => {
@@ -112,7 +114,7 @@ function UserDetailsForm() {
                     onChange={(e) => handleChange(e, setPhone)}
                 />
 
-                <select onChange={(e) => setDeliveryType(e.target.value)}>
+                <select onChange={(e) => setDeliveryType({ value: e.target.value, valid: true })}>
                     <option default disabled selected>Select Delivery Type</option>
                     <option value="fastest" label="Fastest"></option>
                     <option value="cheapest" label="Cheapest"></option>

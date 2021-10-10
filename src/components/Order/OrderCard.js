@@ -1,13 +1,14 @@
 import React from 'react'
 import "./OrderCard.css"
 
-function OrderCard() {
+function OrderCard({ order }) {
     return (
         <div className="OrderCard">
             <h3>Order Details</h3>
-            <p>Cheese:(1), Meat:(2), Salad:(1), Bacon:(1)</p>
-            <p>Date: <strong> 10/12/2021</strong> </p>
-            <p>Delivery Mode: <strong> Fatest</strong></p>
+            <p>Cheese:({order.ingredients.cheese}), Meat:({order.ingredients.meat}), Salad:({order.ingredients.salad}), Bacon:({order.ingredients.bacon})</p>
+            <p>Date: <strong> {order.orderTime}</strong> </p>
+            <p>Delivery Mode: <strong> {order.deliveryType}</strong></p>
+            <p>Price: <strong> {order.price}$</strong></p>
         </div>
     )
 }
