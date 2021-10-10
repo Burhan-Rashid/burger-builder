@@ -16,6 +16,8 @@ function UserDetailsForm() {
     const dispatch = useDispatch();
     const token = useSelector(state => state.user.token);
     const error = useSelector(state => state.order.error);
+    const ingredients = useSelector(state => state.burgerBuilder.ingredients);
+    const price = useSelector(state => state.burgerBuilder.price);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,6 +28,8 @@ function UserDetailsForm() {
             city: city.value,
             phone: phone.value,
             deliveryType: deliveryType.value,
+            ingredients: ingredients,
+            price: price
         }
         dispatch(placeOrder(order, token));
         <Redirect to="/orders" />

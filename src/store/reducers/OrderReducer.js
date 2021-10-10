@@ -17,12 +17,16 @@ const orderSuccess = (state, action) => {
     updatedOrders.push(action.newOrder);
     return { ...state, loading: false, orders: updatedOrders }
 }
+const setOrders = (state, action) => {
+    return { ...state, error: "", loading: false, orders: action.orders }
+}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ORDER_START: return orderStart(state, action);
         case actionTypes.ORDER_FAILED: return orderFailed(state, action);
         case actionTypes.ORDER_SUCCESS: return orderSuccess(state, action);
+        case actionTypes.SET_ORDERS: return setOrders(state, action);
         default: return state;
     }
 };

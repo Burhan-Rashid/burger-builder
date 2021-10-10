@@ -18,3 +18,18 @@ export const placeOrder = (order, token) => {
 
 };
 
+export const fetchOrders = () => {
+    return dispatch => {
+        // dispatch({ type: actionTypes.FETCH_ORDERS });
+        let url = "https://instagram-dev-bf626-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json";
+
+        try {
+            axios.get(url).then((response) => {
+                console.log(response.data)
+                dispatch({ type: actionTypes.SET_ORDERS, orders: response.data })
+            })
+        } catch (error) {
+            dispatch({ type: actionTypes.ORDER_FAILED, error: error.response.data.message })
+        }
+    }
+}
