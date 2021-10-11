@@ -8,8 +8,7 @@ export const placeOrder = (order, token) => {
 
         try {
             axios.post(url, order).then((response) => {
-                console.log(response.data)
-                dispatch({ type: actionTypes.ORDER_SUCCESS, newOrder: response.data.order })
+                dispatch({ type: actionTypes.ORDER_SUCCESS, newOrder: order })
             })
         } catch (error) {
             dispatch({ type: actionTypes.ORDER_FAILED, error: error.response.data.message })

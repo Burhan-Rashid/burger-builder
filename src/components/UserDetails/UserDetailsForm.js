@@ -31,7 +31,6 @@ function UserDetailsForm() {
             ingredients: ingredients,
             price: price,
             orderTime: new Date().toISOString()
-
         }
         //console.log(new Date().toISOString());
         dispatch(placeOrder(order, token));
