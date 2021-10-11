@@ -37,3 +37,7 @@ export const fetchOrders = () => {
         }
     }
 }
+
+export const setPurchased = (val) => {
+    return dispatch => dispatch({ type: actionTypes.SET_PURCHASED, purchased: val })
+};

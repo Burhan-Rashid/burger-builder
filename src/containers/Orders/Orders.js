@@ -12,7 +12,7 @@ function Orders() {
         dispatch(fetchOrders());
     }, [])
 
-    console.log(orders)
+    //console.log(orders)
 
     return (
         <div>
