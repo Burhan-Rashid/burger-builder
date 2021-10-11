@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const orderStart = (state, action) => {
-    return { ...state, loading: true, error: null }
+    return { ...state, loading: true, error: "" }
 }
 const orderFailed = (state, action) => {
     return { ...state, loading: false, error: action.error }
@@ -15,7 +15,7 @@ const orderFailed = (state, action) => {
 const orderSuccess = (state, action) => {
     let updatedOrders = state.orders;
     updatedOrders.push(action.newOrder);
-    return { ...state, loading: false, orders: updatedOrders }
+    return { ...state, loading: false, orders: updatedOrders, error: "" }
 }
 const setOrders = (state, action) => {
     return { ...state, error: "", loading: false, orders: action.orders }

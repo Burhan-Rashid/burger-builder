@@ -16,6 +16,7 @@ function UserDetailsForm() {
     const dispatch = useDispatch();
     const token = useSelector(state => state.user.token);
     const error = useSelector(state => state.order.error);
+    const loading = useSelector(state => state.order.loading);
     const ingredients = useSelector(state => state.burgerBuilder.ingredients);
     const price = useSelector(state => state.burgerBuilder.price);
 
@@ -119,20 +120,24 @@ function UserDetailsForm() {
                     <option value="cheapest" label="Cheapest"></option>
                 </select>
 
-                <div className="buttons">
-                    <Button
-                        style={{ width: "30%", backgroundColor: "gray", marginRight: "5px", color: "white" }}
-                    >
-                        Cancel
-                    </Button>
-                    <Button
-                        type="submit"
-                        style={{ width: "60%", color: "white" }}
-                        onClick={handleSubmit}
-                    >
-                        Order Now
-                    </Button>
-                </div>
+                {loading ?
+                    <div class="spinner"></div>
+                    :
+                    <div className="buttons">
+                        <Button
+                            style={{ width: "30%", backgroundColor: "gray", marginRight: "5px", color: "white" }}
+                        >
+                            Cancel
+                        </Button>
+                        <Button
+                            type="submit"
+                            style={{ width: "60%", color: "white" }}
+                            onClick={handleSubmit}
+                        >
+                            Order Now
+                        </Button>
+                    </div>
+                }
             </form>
         </div>
     )
