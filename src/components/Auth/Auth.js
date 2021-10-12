@@ -3,6 +3,7 @@ import "./Auth.css"
 import Button from "../UI/Button/Button"
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from "../../store/actions/UserActions"
+import { useHistory } from 'react-router-dom';
 
 function Auth() {
     const [email, setEmail] = React.useState("");
@@ -10,13 +11,21 @@ function Auth() {
     const [type, setType] = React.useState("Login");
     const error = useSelector(state => state.user.error);
     const loading = useSelector(state => state.user.loading);
+    const token = useSelector(state => state.user.token);
+    const history = useHistory();
     const dispatch = useDispatch();
+
+    React.useEffect(() => {
+        if(token){
+            history.replace("/");
+        }
+    },[token])
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(auth(email, password, type));
     }
-
+    
     const toggleType = () => {
         if (type === "Register")
             setType("Login");
