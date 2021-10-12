@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Navbar.css"
+import burgerLogo from "../../assets/images/burger-logo.png"
 import { BiMenu } from "react-icons/bi"
 import { NavLink } from "react-router-dom"
 
@@ -7,10 +8,13 @@ function Navbar({ show, setShow, isAuthenticated }) {
 
     return (
         <div className="Navbar">
-            <div className="Navbar__icon" onClick={() => setShow(!show)}>
+            <div className="Navbar__icon MobileOnly" onClick={() => setShow(!show)}>
                 <BiMenu size={38} color="white" />
             </div>
-            <div className="Navbar__right">
+            <div className="Logo">
+                <img src={burgerLogo} alt="MyBurger" />
+            </div>
+            <div className="Navbar__right DesktopOnly">
                 <div className="NavItem"><NavLink className="link" activeClassName="nav__active" exact to="/" >Burger Builder</NavLink></div>
 
                 {!isAuthenticated ?
