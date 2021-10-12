@@ -13,7 +13,7 @@ function Sidebar({ show, setShow, isAuthenticated }) {
     let sidebar = (
         <React.Fragment>
             <Backdrop setShow={setShow} />
-            <div className="sidebar">
+            <div className="sidebar" onClick={() => setShow(false)}>
                 {show ? <BiX className="sidebar__icon" size={38} color="green" onClick={() => setShow(false)} /> : null}
                 {/* <p>Burger Builder</p>
                 <p>Orders</p> */}
