@@ -9,6 +9,7 @@ export const placeOrder = (order, token) => {
         try {
             axios.post(url, order).then((response) => {
                 dispatch({ type: actionTypes.ORDER_SUCCESS, newOrder: order })
+                dispatch({ type: actionTypes.INITIAL_STATE })
             })
         } catch (error) {
             dispatch({ type: actionTypes.ORDER_FAILED, error: error.response.data.message })

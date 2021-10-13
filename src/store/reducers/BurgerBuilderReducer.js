@@ -29,11 +29,15 @@ const removeIngredient = (state, action) => {
     const newState = { ...state, price: updatedPrice, ingredients: { ...state.ingredients, [action.ingredient]: updatedValue } };
     return newState;
 }
+const setInitialState = () => {
+    return initialState;
+}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_INGREDIENT: return addIngredient(state, action);
         case actionTypes.REMOVE_INGREDIENT: return removeIngredient(state, action);
+        case actionTypes.INITIAL_STATE: return setInitialState();
         default: return state;
     }
 };
