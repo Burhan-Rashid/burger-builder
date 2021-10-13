@@ -9,7 +9,7 @@ function OrderCard({ order }) {
             <p>Cheese:({order.ingredients.cheese}), Meat:({order.ingredients.meat}), Salad:({order.ingredients.salad}), Bacon:({order.ingredients.bacon})</p>
             <p>Date: <strong> {new Date(order.orderTime).toLocaleString()}</strong> </p>
             <p>Delivery Mode: <strong> {order.deliveryType}</strong></p>
-            <p>Price: <strong> {order.price}$</strong></p>
+            <p>Price: <strong> {order.price.toFixed(2)}$</strong></p>
         </div>
     )
 }

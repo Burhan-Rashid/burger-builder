@@ -32,7 +32,7 @@ function UserDetailsForm(props) {
             phone: phone.value,
             deliveryType: deliveryType.value,
             ingredients: ingredients,
-            price: price,
+            price: price.toFixed(2),
             orderTime: new Date().toISOString()
         }
         //console.log(new Date().toISOString());
