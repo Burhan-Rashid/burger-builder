@@ -21,6 +21,7 @@ function UserDetailsForm(props) {
     const purchased = useSelector(state => state.order.purchased);
     const ingredients = useSelector(state => state.burgerBuilder.ingredients);
     const price = useSelector(state => state.burgerBuilder.price);
+    const userId = useSelector(state => state.user.userId);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +34,8 @@ function UserDetailsForm(props) {
             deliveryType: deliveryType.value,
             ingredients: ingredients,
             price: price.toFixed(2),
-            orderTime: new Date().toISOString()
+            orderTime: new Date().toISOString(),
+            userId: userId
         }
         //console.log(new Date().toISOString());
         dispatch(placeOrder(order, token));

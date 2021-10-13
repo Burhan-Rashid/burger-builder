@@ -6,11 +6,12 @@ import { fetchOrders } from '../../store/actions/OrderActions'
 function Orders() {
 
     const orders = useSelector(state => state.order.orders)
+    const userId = useSelector(state => state.user.userId)
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        dispatch(fetchOrders());
-    }, [])
+        dispatch(fetchOrders(userId));
+    }, [userId])
 
     //console.log(orders)
 

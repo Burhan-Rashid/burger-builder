@@ -17,9 +17,9 @@ export const auth = (email, password, type) => {
             .then(response => {
                 const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
                 console.log(response.data);
-                localStorage.setItem('token', response.data.idToken);
-                localStorage.setItem('expirationDate', expirationDate);
-                localStorage.setItem('userId', response.data.localId);
+                //localStorage.setItem('token', response.data.idToken);
+                //localStorage.setItem('expirationDate', expirationDate);
+                //localStorage.setItem('userId', response.data.localId);
                 dispatch({ type: actionTypes.AUTH_SUCCESS, token: response.data.idToken, userId: response.data.localId, expiry: expirationDate });
                 // dispatch(checkAuthTimeout(response.data.expiresIn));
             })

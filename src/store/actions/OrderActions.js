@@ -17,7 +17,7 @@ export const placeOrder = (order, token) => {
 
 };
 
-export const fetchOrders = () => {
+export const fetchOrders = (userId) => {
     return dispatch => {
         // dispatch({ type: actionTypes.FETCH_ORDERS });
         let url = "https://instagram-dev-bf626-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json";
@@ -29,7 +29,10 @@ export const fetchOrders = () => {
                     const orders = orderKeys.map((id) => {
                         return response.data[id];
                     })
-                    dispatch({ type: actionTypes.SET_ORDERS, orders: orders })
+                    const currentUserOrders = orders.filter((order) => {
+                        return order.userId === userId
+                    })
+                    dispatch({ type: actionTypes.SET_ORDERS, orders: currentUserOrders })
                 }
             })
         } catch (error) {
