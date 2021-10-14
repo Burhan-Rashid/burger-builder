@@ -3,12 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from '../UI/Button/Button'
 import * as actions from "../../store/actions/BurgerBuilderActions"
 import "./BuildControls.css"
+import { useHistory } from 'react-router-dom';
 
 function BuildControls({ setShow }) {
 
     const ingredients = useSelector(state => state.burgerBuilder.ingredients);
+    const token = useSelector(state => state.user.token);
     const price = useSelector(state => state.burgerBuilder.price);
     const dispatch = useDispatch();
+    const history = useHistory();
     const ingredientArray = Object.keys(ingredients);
 
     const addIngredient = (ing) => {
@@ -19,6 +22,10 @@ function BuildControls({ setShow }) {
             return;
         }
         dispatch(actions.removeIngredient(ing));
+    }
+
+    const handleOrder = () => {
+        token ? setShow(true) : history.push("/auth")
     }
 
     // console.log(price)
@@ -44,7 +51,7 @@ function BuildControls({ setShow }) {
             <button
                 className="BuildControls__button"
                 disabled={price === 4}
-                onClick={() => setShow(true)}
+                onClick={handleOrder}
             >
                 <strong>Order Now</strong>
             </button>
