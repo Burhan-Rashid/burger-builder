@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { withRouter } from 'react-router'
 import Backdrop from '../Backdrop/Backdrop'
 import Button from '../UI/Button/Button'

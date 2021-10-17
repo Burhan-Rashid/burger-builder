@@ -18,3 +18,11 @@
 .modal h4 {
   margin: 20px 0px;
 }
+@media (max-width: 620px) {
+  .modal {
+    width: 80%;
+    left: 10%;
+    height: 60%;
+    padding: 70px 25px;
+  }
+}
