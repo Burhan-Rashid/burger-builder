@@ -20,7 +20,7 @@ export const placeOrder = (order, token) => {
 
 export const fetchOrders = (userId) => {
     return dispatch => {
-        // dispatch({ type: actionTypes.FETCH_ORDERS });
+        dispatch({ type: actionTypes.ORDER_START });
         let url = "https://instagram-dev-bf626-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json";
 
         try {
