@@ -1,6 +1,6 @@
 .BuildControls {
-  width: 50%;
-  height: 450px;
+  width: 80%;
+  height: 350px;
   margin: 2% auto;
   box-sizing: border-box;
   text-align: center;
@@ -35,4 +35,10 @@
   cursor: pointer;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
+}
+@media (min-width: 620px) {
+  .BuildControls {
+    width: 50%;
+    height: 450px;
+  }
 }
